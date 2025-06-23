@@ -15,423 +15,214 @@
       --code-bg: #1e1e1e;
       --code-text: #dcdcdc;
     }
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      transition: background 0.3s, color 0.3s;
-      background: var(--bg-light);
-      color: var(--text-light);
-    }
-
-    body.dark {
-      background: var(--bg-dark);
-      color: var(--text-dark);
-    }
-
-    header {
-      padding: 40px 20px;
-      text-align: center;
-      background: var(--primary);
-      color: white;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      background: #1565c0;
-      padding: 12px;
-    }
-
-    nav button {
-      background: none;
-      border: none;
-      color: white;
-      font-weight: 500;
-      font-size: 1em;
-      cursor: pointer;
-    }
-
-    nav button:hover {
-      color: #90caf9;
-    }
-
-    .toggle-mode {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: #fff;
-      color: #000;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    body.dark .toggle-mode {
-      background: #222;
-      color: #fff;
-    }
-
-    .section {
-      display: none;
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .section.active {
-      display: block;
-    }
-
-    h2 {
-      font-size: 2em;
-      color: var(--primary);
-      margin-bottom: 30px;
-      border-bottom: 2px solid #90caf9;
-      display: inline-block;
-    }
-
-    .project-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-      margin-bottom: 20px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      border: 1px solid #444;
-    }
-
-    .code-block {
-      background: var(--code-bg);
-      color: var(--code-text);
-      padding: 20px;
-      margin-top: 10px;
-      border-radius: 6px;
-      font-family: 'Fira Code', monospace;
-      white-space: pre-wrap;
-      display: none;
-      transition: all 0.3s ease;
-    }
-
-    .skills-icons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .skills-icons img {
-      width: 50px;
-      transition: transform 0.3s;
-      cursor: pointer;
-    }
-
-    .skills-icons img:hover {
-      transform: scale(1.2);
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: var(--primary);
-      color: white;
-      margin-top: 40px;
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.6s ease forwards;
-      will-change: opacity, transform;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .testimonial-container {
-      position: relative;
-      max-width: 600px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-
-    .testimonial {
-      display: none;
-      text-align: center;
-      font-style: italic;
-      transition: opacity 0.5s ease;
-    }
-
-    .testimonial.active {
-      display: block;
-      animation: fadeInUp 0.6s ease forwards;
-    }
-
-    .testimonial h4 {
-      margin-top: 15px;
-      font-weight: 500;
-      color: var(--primary);
-    }
-
-    .testimonial-nav {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-      gap: 15px;
-    }
-
-    .testimonial-nav button {
-      background: var(--primary);
-      border: none;
-      color: white;
-      font-size: 1.5em;
-      cursor: pointer;
-      padding: 5px 15px;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    .testimonial-nav button:hover {
-      background: #005ea0;
-    }
-
-    .cert-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    .cert-card {
-      background: #ffffff10;
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      overflow: hidden;
-      width: 300px;
-      text-align: center;
-      padding-bottom: 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .cert-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .cert-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .cert-card h4 {
-      margin: 15px 0 10px;
-      font-size: 1.1em;
-      color: var(--primary);
-    }
-
-    .cert-card a {
-      background: var(--primary);
-      color: white;
-      padding: 10px 15px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: 500;
-      transition: background 0.3s;
-    }
-
-    .cert-card a:hover {
-      background: #005ea0;
-    }
+    body { margin:0; font-family:'Poppins',sans-serif; transition:background 0.3s,color 0.3s; background:var(--bg-light); color:var(--text-light); }
+    body.dark { background:var(--bg-dark); color:var(--text-dark); }
+    header { padding:40px 20px; text-align:center; background:var(--primary); color:white; }
+    nav { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; background:#1565c0; padding:12px; }
+    nav button { background:none; border:none; color:white; font-weight:500; font-size:1em; cursor:pointer; }
+    nav button:hover { color:#90caf9; }
+    .toggle-mode { position:absolute; top:20px; right:20px; background:#fff; color:#000; border:none; padding:5px 10px; cursor:pointer; border-radius:5px; }
+    body.dark .toggle-mode { background:#222; color:#fff; }
+    .section { display:none; padding:40px 20px; max-width:1000px; margin:auto; }
+    .section.active { display:block; }
+    h2 { font-size:2em; color:var(--primary); margin-bottom:30px; border-bottom:2px solid #90caf9; display:inline-block; }
+    .project-card { background:rgba(255,255,255,0.05); border-radius:10px; margin-bottom:20px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); border:1px solid #444; }
+    .code-block { background:var(--code-bg); color:var(--code-text); padding:20px; margin-top:10px; border-radius:6px; font-family:'Fira Code',monospace; white-space:pre-wrap; display:none; transition:all 0.3s ease; }
+    .skills-icons { display:flex; flex-wrap:wrap; gap:15px; margin-top:20px; }
+    .skills-icons img { width:50px; transition:transform 0.3s; cursor:pointer; }
+    .skills-icons img:hover { transform:scale(1.2); }
+    footer { text-align:center; padding:20px; background:var(--primary); color:white; margin-top:40px; }
+    .fade-in { opacity:0; transform:translateY(20px); animation:fadeInUp 0.6s ease forwards; will-change:opacity,transform; }
+    @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
+    .testimonial-container { position:relative; max-width:600px; margin:0 auto; overflow:hidden; }
+    .testimonial { display:none; text-align:center; font-style:italic; transition:opacity 0.5s ease; }
+    .testimonial.active { display:block; animation:fadeInUp 0.6s ease forwards; }
+    .testimonial h4 { margin-top:15px; font-weight:500; color:var(--primary); }
+    .testimonial-nav { display:flex; justify-content:center; margin-top:20px; gap:15px; }
+    .testimonial-nav button { background:var(--primary); border:none; color:white; font-size:1.5em; cursor:pointer; padding:5px 15px; border-radius:5px; transition:background 0.3s; }
+    .testimonial-nav button:hover { background:#005ea0; }
+    .cert-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:30px; }
+    .cert-card { background:#ffffff10; border:1px solid #ccc; border-radius:12px; overflow:hidden; width:300px; text-align:center; padding-bottom:20px; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition:transform 0.3s ease; }
+    .cert-card:hover { transform:translateY(-5px); }
+    .cert-card img { width:100%; height:auto; display:block; cursor:zoom-in; }
+    .cert-card h4 { margin:15px 0 10px; font-size:1.1em; color:var(--primary); }
+    .cert-card a { background:var(--primary); color:white; padding:10px 15px; text-decoration:none; border-radius:5px; font-weight:500; transition:background 0.3s; }
+    .cert-card a:hover { background:#005ea0; }
+    .cert-modal { display:none; position:fixed; z-index:1000; top:0; left:0; width:100vw; height:100vh; background-color:rgba(0,0,0,0.85); justify-content:center; align-items:center; }
+    .cert-modal img { max-width:90%; max-height:80vh; border-radius:12px; box-shadow:0 0 30px rgba(0,0,0,0.5); }
+    .close-btn { position:absolute; top:25px; right:35px; color:#fff; font-size:2rem; font-weight:bold; cursor:pointer; z-index:1001; }
+    #chatContainer { position:fixed; bottom:20px; right:20px; width:300px; background:var(--bg-light); border:1px solid #ccc; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.2); display:flex; flex-direction:column; overflow:hidden; }
+    body.dark #chatContainer { background:var(--bg-dark); border-color:#444; }
+    #chatHeader { padding:10px; background:var(--primary); color:white; font-weight:bold; text-align:center; cursor:pointer; }
+    #chatBody { flex:1; padding:10px; overflow-y:auto; height:200px; }
+    .chat-message.user { text-align:right; color:var(--primary); margin-bottom:10px; }
+    .chat-message.bot { text-align:left; color:var(--text-light); margin-bottom:10px; }
+    #chatInputContainer { display:flex; border-top:1px solid #ccc; }
+    #chatInput { flex:1; padding:10px; border:none; outline:none; }
+    #chatSend { background:var(--primary); border:none; color:white; padding:0 15px; cursor:pointer; }
   </style>
 </head>
 <body>
+  <button class="toggle-mode" onclick="toggleMode()">🌙 Modo Oscuro</button>
+  <header><h1>Cristian A. Suárez</h1><p>Desarrollador de Software | Ingeniería de Sistemas</p></header>
+  <nav>
+    <button onclick="showSection('sobre')">Sobre mí</button>
+    <button onclick="showSection('habilidades')">Habilidades</button>
+    <button onclick="showSection('proyectos')">Proyectos</button>
+    <button onclick="showSection('testimonios')">Testimonios</button>
+    <button onclick="showSection('certificados')">Certificados</button>
+    <button onclick="showSection('contacto')">Contacto</button>
+  </nav>
 
-<button class="toggle-mode" onclick="toggleMode()">🌙 Modo Oscuro</button>
-
-<header>
-  <h1>Cristian A. Suárez</h1>
-  <p>Desarrollador de Software | Ingeniería de Sistemas</p>
-</header>
-
-<nav>
-  <button onclick="showSection('sobre')">Sobre mí</button>
-  <button onclick="showSection('habilidades')">Habilidades</button>
-  <button onclick="showSection('proyectos')">Proyectos</button>
-  <button onclick="showSection('testimonios')">Testimonios</button>
-  <button onclick="showSection('certificados')">Certificados</button>
-  <button onclick="showSection('contacto')">Contacto</button>
-</nav>
-
-<section id="sobre" class="section active fade-in">
-  <h2>Sobre mí</h2>
-  <p>Estudiante apasionado por la programación, estructuras de datos, inteligencia artificial y sistemas inteligentes. Experto en Java, Python y desarrollo web.</p>
-</section>
-
-<section id="habilidades" class="section">
-  <h2>Habilidades</h2>
-  <div class="skills-icons">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" title="Java"/>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" title="Python"/>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" title="JavaScript"/>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" title="HTML"/>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" title="CSS"/>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" title="C#"/>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" title="SQL"/>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" title="Git"/>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" title="GitHub"/>
-  </div>
-</section>
-
-<section id="proyectos" class="section">
-  <h2>Proyectos</h2>
-
-  <div class="project-card">
-    <h3 onclick="toggleCode(this)">TriplAI Coach</h3>
-    <p>App conceptual de IA emocional con lectura de voz.</p>
-    <div class="code-block"><code>
-voz.leer("Hola, soy tu coach TriplAI");
-IA.mostrarLogos(["OpenAI", "Gemini", "Claude"]);
-if (emocion === "molesto") IA.responderConEmpatia();
-    </code></div>
-  </div>
-
-  <div class="project-card">
-    <h3 onclick="toggleCode(this)">Gestor de Préstamos</h3>
-    <p>Java OOP app para préstamos de portátiles y tabletas.</p>
-    <div class="code-block"><code>
-class Estudiante {
-  String nombre;
-  long cedula;
-}
-ArrayList&lt;Estudiante&gt; lista = new ArrayList&lt;&gt;();
-    </code></div>
-  </div>
-
-  <div class="project-card">
-    <h3 onclick="toggleCode(this)">Sistema de Ventas</h3>
-    <p>Java + colas, con descuentos automáticos por promedio.</p>
-    <div class="code-block"><code>
-Queue&lt;Producto&gt; productos = new LinkedList&lt;&gt;();
-double promedio = calcularPromedio();
-    </code></div>
-  </div>
-
-</section>
-
-<section id="testimonios" class="section">
-  <h2>Testimonios</h2>
-  <div class="testimonial-container">
-    <div class="testimonial active">
-      <p>"Cristian tiene una gran habilidad para resolver problemas y explicar conceptos complejos de manera sencilla."</p>
-      <h4>– Laura Gómez, Profesora</h4>
+  <section id="sobre" class="section active fade-in">
+    <h2>Sobre mí</h2>
+    <p>Estudiante apasionado por la programación, estructuras de datos, inteligencia artificial y sistemas inteligentes. Experto en Java, Python y desarrollo web.</p>
+  </section>
+  <section id="habilidades" class="section">
+    <h2>Habilidades</h2>
+    <div class="skills-icons">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" title="Java"/>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" title="Python"/>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" title="JavaScript"/>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" title="HTML"/>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" title="CSS"/>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" title="C#"/>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" title="SQL"/>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" title="Git"/>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" title="GitHub"/>
     </div>
-    <div class="testimonial">
-      <p>"Su proyecto de inteligencia artificial fue uno de los más innovadores que he visto este año."</p>
-      <h4>– Carlos Mendoza, Mentor de IA</h4>
+  </section>
+  <section id="proyectos" class="section">
+    <h2>Proyectos</h2>
+    <div class="project-card"><h3 onclick="toggleCode(this)">TriplAI Coach</h3><p>App conceptual de IA emocional con lectura de voz.</p><div class="code-block"><code>voz.leer("Hola, soy tu coach TriplAI"); IA.mostrarLogos(["OpenAI","Gemini","Claude"]); if(emocion==="molesto") IA.responderConEmpatia();</code></div></div>
+    <div class="project-card"><h3 onclick="toggleCode(this)">Gestor de Préstamos</h3><p>Java OOP app para préstamos de portátiles y tabletas.</p><div class="code-block"><code>class Estudiante{String nombre; long cedula;} ArrayList&lt;Estudiante&gt; lista = new ArrayList&lt;&gt;();</code></div></div>
+    <div class="project-card"><h3 onclick="toggleCode(this)">Sistema de Ventas</h3><p>Java + colas, con descuentos automáticos por promedio.</p><div class="code-block"><code>Queue&lt;Producto&gt; productos = new LinkedList&lt;&gt;(); double promedio = calcularPromedio();</code></div></div>
+  </section>
+  <section id="testimonios" class="section">
+    <h2>Testimonios</h2>
+    <div class="testimonial-container">
+      <div class="testimonial active"><p>"Cristian tiene una gran habilidad para resolver problemas y explicar conceptos complejos de manera sencilla."</p><h4>– Laura Gómez, Profesora</h4></div>
+      <div class="testimonial"><p>"Su proyecto de inteligencia artificial fue uno de los más innovadores que he visto este año."</p><h4>– Carlos Mendoza, Mentor de IA</h4></div>
+      <div class="testimonial"><p>"Trabajar con Cristian fue un placer. Muy responsable y siempre busca superarse."</p><h4>– Andrea Rodríguez, Líder de Proyecto</h4></div>
+      <div class="testimonial-nav"><button onclick="prevTestimonial()">⟨</button><button onclick="nextTestimonial()">⟩</button></div>
     </div>
-    <div class="testimonial">
-      <p>"Trabajar con Cristian fue un placer. Muy responsable y siempre busca superarse."</p>
-      <h4>– Andrea Rodríguez, Líder de Proyecto</h4>
+  </section>
+  <section id="certificados" class="section">
+    <h2>Certificados</h2>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <img src="https://i.imgur.com/AgxXfLw.jpg" alt="Certificado Python" onclick="openModal(this.src)" />
+        <h4>Python Essentials 2 – Cisco Networking Academy</h4>
+        <a href="https://i.imgur.com/AgxXfLw.jpg" download target="_blank">📥 Descargar</a>
+      </div>
     </div>
-    <div class="testimonial-nav">
-      <button onclick="prevTestimonial()">⟨</button>
-      <button onclick="nextTestimonial()">⟩</button>
+  </section>
+  <section id="contacto" class="section">
+    <h2>Contacto</h2>
+    <p>📧 suareznavarro145@gmail.com</p>
+    <p>📱 315 774 4050</p>
+    <p>📍 Medellín, Colombia</p>
+  </section>
+
+  <div id="certModal" class="cert-modal" onclick="closeModal()"><span class="close-btn" onclick="closeModal()">×</span><img id="modalImg" src="" alt="Certificado Ampliado"></div>
+
+  <div id="chatContainer">
+    <div id="chatHeader" onclick="toggleChat()">Chat conmigo</div>
+    <div id="chatBody"></div>
+    <div id="chatInputContainer">
+      <input id="chatInput" type="text" placeholder="Escribe tu mensaje..." onkeypress="if(event.key==='Enter') sendChat()" />
+      <button id="chatSend" onclick="sendChat()">➤</button>
     </div>
   </div>
-</section>
 
-<section id="certificados" class="section">
-  <h2>Certificados</h2>
-  <div class="cert-grid">
-    <div class="cert-card">
-      <img src="https://via.placeholder.com/300x200?text=Certificado+IA" alt="Certificado IA" />
-      <h4>Certificado en Inteligencia Artificial</h4>
-      <a href="ruta/certificado-ia.pdf" target="_blank" download>📥 Descargar</a>
-    </div>
-    <div class="cert-card">
-      <img src="https://via.placeholder.com/300x200?text=Certificado+Web" alt="Certificado Web" />
-      <h4>Desarrollo Web Avanzado</h4>
-      <a href="ruta/certificado-web.pdf" target="_blank" download>📥 Descargar</a>
-    </div>
-    <div class="cert-card">
-      <img src="https://via.placeholder.com/300x200?text=Certificado+Python" alt="Certificado Python" />
-      <h4>Python para Ciencia de Datos</h4>
-      <a href="ruta/certificado-python.pdf" target="_blank" download>📥 Descargar</a>
-    </div>
-  </div>
-</section>
+  <footer><p>©️ 2025 Cristian A. Suárez</p></footer>
 
-<section id="contacto" class="section">
-  <h2>Contacto</h2>
-  <p>📧 suareznavarro145@gmail.com</p>
-  <p>📱 315 774 4050</p>
-  <p>📍 Medellín, Colombia</p>
-</section>
+  <script>
+    const OPENAI_BACKEND_URL = 'http://localhost:3000/api/chat';
 
-<footer>
-  <p>©️ 2025 Cristian A. Suárez</p>
-</footer>
-
-<script>
-  function showSection(id) {
-    document.querySelectorAll('.section').forEach(sec => {
-      sec.classList.remove('active');
-    });
-    const section = document.getElementById(id);
-    section.classList.add("active", "fade-in");
-  }
-
-  function toggleCode(element) {
-    const code = element.nextElementSibling;
-    if (code.style.display === "block") {
-      code.style.display = "none";
-    } else {
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active', 'fade-in');
+    }
+    function toggleCode(el) {
+      const cb = el.nextElementSibling;
       document.querySelectorAll('.code-block').forEach(c => c.style.display = 'none');
-      code.style.display = "block";
-      code.classList.add("fade-in");
+      cb.style.display = cb.style.display === 'block' ? 'none' : 'block';
     }
-  }
-
-  function toggleMode() {
-    const btn = document.querySelector('.toggle-mode');
-    const isDark = document.body.classList.toggle("dark");
-    btn.textContent = isDark ? "☀️ Modo Claro" : "🌙 Modo Oscuro";
-    localStorage.setItem("modo", isDark ? "dark" : "light");
-  }
-
-  window.onload = () => {
-    if (localStorage.getItem("modo") === "dark") {
-      document.body.classList.add("dark");
-      document.querySelector('.toggle-mode').textContent = "☀️ Modo Claro";
+    function toggleMode() {
+      const isDark = document.body.classList.toggle('dark');
+      document.querySelector('.toggle-mode').textContent = isDark ? '☀️ Modo Claro' : '🌙 Modo Oscuro';
+      localStorage.setItem('modo', isDark ? 'dark' : 'light');
     }
-  };
-
-  let currentTestimonial = 0;
-  const testimonials = document.querySelectorAll(".testimonial");
-
-  function showTestimonial(index) {
-    testimonials.forEach(t => t.classList.remove("active"));
-    testimonials[index].classList.add("active");
-  }
-
-  function nextTestimonial() {
-    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-    showTestimonial(currentTestimonial);
-  }
-
-  function prevTestimonial() {
-    currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-    showTestimonial(currentTestimonial);
-  }
-</script>
-
+    window.onload = () => {
+      if (localStorage.getItem('modo') === 'dark') {
+        document.body.classList.add('dark');
+        document.querySelector('.toggle-mode').textContent = '☀️ Modo Claro';
+      }
+      showChat();
+    };
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
+    function showTestimonial(i) {
+      testimonials.forEach(t => t.classList.remove('active'));
+      testimonials[i].classList.add('active');
+    }
+    function nextTestimonial() {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      showTestimonial(currentTestimonial);
+    }
+    function prevTestimonial() {
+      currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+      showTestimonial(currentTestimonial);
+    }
+    function openModal(src) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('certModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('certModal').style.display = 'none';
+    }
+    async function sendChat() {
+      const input = document.getElementById('chatInput');
+      const msg = input.value.trim();
+      if (!msg) return;
+      addChat('user', msg);
+      input.value = '';
+      try {
+        const res = await fetch(OPENAI_BACKEND_URL, {
+          method: 'POST',
+          headers: { 'Content-Type':'application/json' },
+          body: JSON.stringify({
+            messages: [
+              { role: 'system', content: 'Eres el asistente de portafolio de Cristian A. Suárez. Responde con claridad, simpatía y profesionalismo.' },
+              { role: 'user', content: msg }
+            ]
+          })
+        });
+        const data = await res.json();
+        addChat('bot', data.reply || '🤖 Sin respuesta recibida');
+      } catch (e) {
+        console.error(e);
+        addChat('bot', '❌ Error: no se pudo contactar al servidor.');
+      }
+    }
+    function addChat(who, text) {
+      const bd = document.getElementById('chatBody');
+      const div = document.createElement('div');
+      div.className = 'chat-message ' + who;
+      div.textContent = text;
+      bd.appendChild(div);
+      bd.scrollTop = bd.scrollHeight;
+    }
+    function toggleChat() {
+      const parent = document.getElementById('chatBody').parentNode;
+      parent.style.display = parent.style.display === 'none' ? 'flex' : 'none';
+    }
+    function showChat() {
+      const cc = document.getElementById('chatContainer');
+      cc.style.display = 'flex';
+      document.getElementById('chatBody').parentNode.style.display = 'flex';
+    }
+  </script>
 </body>
 </html>
