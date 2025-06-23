@@ -4,42 +4,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portafolio de Cristian</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #0d47a1;
-      --accent: #90caf9;
-      --bg: #f4f7fa;
-      --white: #fff;
+      --bg-light: #f4f7fa;
+      --bg-dark: #0e1117;
+      --text-light: #333;
+      --text-dark: #e0e0e0;
+      --primary: #007acc;
       --code-bg: #1e1e1e;
       --code-text: #dcdcdc;
     }
 
-    * {
+    body {
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
       font-family: 'Poppins', sans-serif;
+      transition: background 0.3s, color 0.3s;
+      background: var(--bg-light);
+      color: var(--text-light);
     }
 
-    body {
-      background: var(--bg);
-      color: #333;
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
     }
 
     header {
+      padding: 40px 20px;
+      text-align: center;
       background: var(--primary);
       color: white;
-      text-align: center;
-      padding: 40px 20px;
     }
 
     nav {
-      background: #1565c0;
       display: flex;
       justify-content: center;
       gap: 20px;
+      background: #1565c0;
       padding: 12px;
     }
 
@@ -50,98 +51,111 @@
       font-weight: 500;
       font-size: 1em;
       cursor: pointer;
-      transition: color 0.3s ease;
     }
 
     nav button:hover {
-      color: var(--accent);
+      color: #90caf9;
+    }
+
+    .toggle-mode {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #fff;
+      color: #000;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    body.dark .toggle-mode {
+      background: #222;
+      color: #fff;
     }
 
     .section {
       display: none;
-      padding: 50px 20px;
+      padding: 40px 20px;
       max-width: 1000px;
       margin: auto;
     }
 
     .section.active {
       display: block;
-      animation: fade 0.4s ease-in-out;
-    }
-
-    @keyframes fade {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     h2 {
       font-size: 2em;
       color: var(--primary);
       margin-bottom: 30px;
-      border-bottom: 2px solid var(--accent);
+      border-bottom: 2px solid #90caf9;
       display: inline-block;
     }
 
-    .skills {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .skill-icon {
-      width: 60px;
-      height: 60px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-
-    .skill-icon:hover {
-      transform: scale(1.2) rotate(-5deg);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .projects {
-      display: flex;
-      gap: 20px;
-      flex-direction: column;
-    }
-
     .project-card {
-      background: var(--white);
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      margin-bottom: 20px;
       padding: 20px;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 1px solid #444;
     }
 
     .code-block {
       background: var(--code-bg);
       color: var(--code-text);
       padding: 20px;
-      margin-top: 20px;
-      border-radius: 8px;
-      font-family: 'Courier New', monospace;
-      display: none;
+      margin-top: 10px;
+      border-radius: 6px;
+      font-family: 'Fira Code', monospace;
       white-space: pre-wrap;
-      box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+      display: none;
+    }
+
+    .skills-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .skills-icons img {
+      width: 50px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .skills-icons img:hover {
+      transform: scale(1.2);
     }
 
     footer {
-      background: var(--primary);
-      color: white;
       text-align: center;
       padding: 20px;
-      margin-top: 50px;
+      background: var(--primary);
+      color: white;
+      margin-top: 40px;
     }
-  </style>
+  
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    </style>
+
 </head>
 <body>
+
+<button class="toggle-mode" onclick="toggleMode()">🌙 Modo Oscuro</button>
 
 <header>
   <h1>Cristian A. Suárez</h1>
@@ -149,114 +163,101 @@
 </header>
 
 <nav>
-  <button onclick="showSection('sobre-mi')">Sobre mí</button>
+  <button onclick="showSection('sobre')">Sobre mí</button>
   <button onclick="showSection('habilidades')">Habilidades</button>
   <button onclick="showSection('proyectos')">Proyectos</button>
   <button onclick="showSection('contacto')">Contacto</button>
 </nav>
 
-<div id="sobre-mi" class="section active">
+<section id="sobre" class="section active fade-in">
   <h2>Sobre mí</h2>
-  <p>Soy estudiante de Ingeniería de Sistemas apasionado por la programación, la automatización y la inteligencia artificial. Me especializo en Java, estructuras de datos, y desarrollo de interfaces prácticas y limpias.</p>
-</div>
+  <p>Estudiante apasionado por la programación, estructuras de datos, inteligencia artificial y sistemas inteligentes. Experto en Java, Python y desarrollo web.</p>
+</section>
 
-<div id="habilidades" class="section">
-  <h2>Habilidades Técnicas</h2>
-  <div class="skills">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="skill-icon" alt="Java"/>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="skill-icon" alt="Python"/>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="skill-icon" alt="JavaScript"/>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="skill-icon" alt="Git"/>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="skill-icon" alt="GitHub"/>
+<section id="habilidades" class="section">
+  <h2>Habilidades</h2>
+  <div class="skills-icons">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" title="Java"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" title="Python"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" title="JavaScript"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" title="HTML"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" title="CSS"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" title="C#"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" title="SQL"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" title="Git"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" title="GitHub"/>
   </div>
-</div>
-<div id="proyectos" class="section">
+</section>
+
+<section id="proyectos" class="section">
   <h2>Proyectos</h2>
-  <div class="projects">
 
-    <div class="project-card" onclick="toggleCode(this)">
-      <h3>TriplAI Coach</h3>
-      <p>App conceptual de IA emocional con lectura de voz y detección de emociones.</p>
-      <div class="code-block"><code>
-// Simulación de voz, emoción y logos de IA
-if (emocion == 'molesto') {
-  IA.responderConEmpatia();
-}
+  <div class="project-card">
+    <h3 onclick="toggleCode(this)">TriplAI Coach</h3>
+    <p>App conceptual de IA emocional con lectura de voz.</p>
+    <div class="code-block"><code>
 voz.leer("Hola, soy tu coach TriplAI");
-IA.mostrarLogos(['OpenAI', 'Gemini', 'Claude']);
-      </code></div>
-    </div>
+IA.mostrarLogos(["OpenAI", "Gemini", "Claude"]);
+if (emocion === "molesto") IA.responderConEmpatia();
+    </code></div>
+  </div>
 
-    <div class="project-card" onclick="toggleCode(this)">
-      <h3>Gestor de Préstamos</h3>
-      <p>Sistema Java orientado a objetos para gestionar préstamos de portátiles y tabletas a estudiantes.</p>
-      <div class="code-block"><code>
-// Clase principal Java
-public class Estudiante {
+  <div class="project-card">
+    <h3 onclick="toggleCode(this)">Gestor de Préstamos</h3>
+    <p>Java OOP app para préstamos de portátiles y tabletas.</p>
+    <div class="code-block"><code>
+class Estudiante {
   String nombre;
   long cedula;
-
-  public Estudiante(String nombre, long cedula) {
-    this.nombre = nombre;
-    this.cedula = cedula;
-  }
-
-  public void mostrarDatos() {
-    System.out.println("Nombre: " + nombre);
-    System.out.println("Cédula: " + cedula);
-  }
 }
-
 ArrayList&lt;Estudiante&gt; lista = new ArrayList&lt;&gt;();
-lista.add(new Estudiante("Cristian", 1127050741));
-lista.get(0).mostrarDatos();
-      </code></div>
-    </div>
-
-    <div class="project-card" onclick="toggleCode(this)">
-      <h3>Sistema de Ventas</h3>
-      <p>Aplicación Java con colas que calcula descuentos según el promedio de precios ingresado por el usuario.</p>
-      <div class="code-block"><code>
-// Cola de productos y lógica de descuento
-Queue&lt;Producto&gt; productos = new LinkedList&lt;&gt;();
-double promedioVenta = calcularPromedio();
-
-for (Producto p : productos) {
-  if (p.getPrecio() &gt; promedioVenta) {
-    p.aplicarDescuento(15);
-  }
-  System.out.println(p);
-}
-      </code></div>
-    </div>
-
+    </code></div>
   </div>
-</div>
 
-<div id="contacto" class="section">
+  <div class="project-card">
+    <h3 onclick="toggleCode(this)">Sistema de Ventas</h3>
+    <p>Java + colas, con descuentos automáticos por promedio.</p>
+    <div class="code-block"><code>
+Queue&lt;Producto&gt; productos = new LinkedList&lt;&gt;();
+double promedio = calcularPromedio();
+    </code></div>
+  </div>
+
+</section>
+
+<section id="contacto" class="section">
   <h2>Contacto</h2>
   <p>📧 suareznavarro145@gmail.com</p>
   <p>📱 315 774 4050</p>
   <p>📍 Medellín, Colombia</p>
-</div>
+</section>
 
 <footer>
-  <p>© 2025 Cristian A. Suárez – Portafolio Personal</p>
+  <p>© 2025 Cristian A. Suárez</p>
 </footer>
 
 <script>
   function showSection(id) {
-    document.querySelectorAll('.section').forEach(section => {
-      section.classList.remove('active');
+    document.querySelectorAll('.section').forEach(sec => {
+      sec.classList.remove('active');
     });
-    document.getElementById(id).classList.add('active');
+    const section = document.getElementById(id);
+    section.classList.add("active", "fade-in");
   }
 
-  function toggleCode(card) {
-    const code = card.querySelector('.code-block');
-    const isVisible = code.style.display === "block";
-    document.querySelectorAll('.code-block').forEach(c => c.style.display = 'none');
-    if (!isVisible) code.style.display = 'block';
+  function toggleCode(element) {
+    const code = element.nextElementSibling;
+    if (code.style.display === "block") {
+      code.style.display = "none";
+    } else {
+      document.querySelectorAll('.code-block').forEach(c => c.style.display = 'none');
+      code.style.display = "block";
+      code.classList.add("fade-in");
+    }
+  }
+
+  function toggleMode() {
+    document.body.classList.toggle("dark");
   }
 </script>
 
